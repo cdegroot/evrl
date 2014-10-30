@@ -4,8 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+EVRL used to stand for "East Veluwe Research Labs", when I lived in [that](http://maps.google.com/?ll=52.072332,6.04557&spn=0.148142,0.360489&t=h&z=12&vpsrc=6) nook of the world. Now, it's just a handy 4-letter site to take my musings and writings. 
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+Small disclaimer: whatever is on this site, it will never reflect the official opinion of whoever is my employer when you read this or when I write this :)
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+Over time, I hope to add new articles, etcetera, to this site. Until then, I have a quick selection of older articles on my [personal site](http://www.cdegroot.com/articles/)
+
+My name is Cees de Groot (pronounce it as "case"), and I live in Toronto.
+
+See [my LinkedIn profile](http://nl.linkedin.com/in/cdegroot) for details.
