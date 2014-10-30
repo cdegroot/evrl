@@ -87,6 +87,8 @@ directly in Docker containers. This allows us to do the following:
 
 {% highlight makefile %}
 PACKAGER_DOCKER=casedeg/python-dist:10.04-1
+VERSION:=$(shell python setup.py --version)
+
 dist: test
     # Package dependencies
     docker run -i -t --rm -v ${PWD}:/data ${PACKAGER_DOCKER} /bin/bash \
