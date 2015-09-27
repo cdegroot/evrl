@@ -16,4 +16,6 @@ bloated ORM (and similar libraries) that hide important details.
 Instead, I've tried to create a minimal wrapper around the most-often
 used JDBC functions.
 
-Work in progress, details in Github at the link above.
+Unclever is a work in progress, details in Github at the link above.
+Feedback is very welcome, as pull requests or as constructive
+comments in issues.
