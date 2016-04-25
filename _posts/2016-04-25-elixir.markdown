@@ -28,8 +28,9 @@ I think it was October last year when I read about
 to convince myself to look again. There are some extremely important
 advantages with Elixir which stand out from just reading the blurbs:
 
-* It's performant on the Scala level * It's very close to Ruby; *
-It has a smooth "upgrade path" from Rails with Phoenix.
+* It's performant on the Scala level
+* It's very close to Ruby;
+* It has a smooth "upgrade path" from Rails with Phoenix.
 
 To me, there were more compelling arguments, which I'll discuss in
 a bit more detail here. First, it runs on the Erlang (OTP) Platform.
