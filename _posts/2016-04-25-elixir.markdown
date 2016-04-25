@@ -1,0 +1,86 @@
+---
+layout: post
+title:  "Elixir"
+date:   2016-04-25 20:43:34
+categories: elixir
+---
+
+New languages have been popping up with predictable regularity ever
+since I wrote my first line of code. Elixir is one of the exceptions
+that gets me out of jaded-old-guy mode.
+
+At PagerDuty, we mainly use two languages: Scala and Ruby. Ruby was
+the first main language, as our founders used a Rails app to convince
+our VCs to hand over the piles of cash and we started building out
+from there. Scala was added when the team ran into the limitations
+of Rails, especially when doing background/multi-threaded processing.
+
+Scala and Ruby come from widely different philosophies (let's not
+go into details, but let's just approximately summarize it as
+"functional/statically typed" versus "object oriented/dynamically
+typed"), and in both camps there are people that have trouble
+crossing the bridge to the other side. Pretty much most developers
+specialize in one of the languages, and don't feel at ease when
+using "the other one".
+
+I think it was October last year when I read about
+[Elixir](http//elixir-lang.org), and it didn't take me very long
+to convince myself to look again. There are some extremely important
+advantages with Elixir which stand out from just reading the blurbs:
+
+* It's performant on the Scala level * It's very close to Ruby; *
+It has a smooth "upgrade path" from Rails with Phoenix.
+
+To me, there were more compelling arguments, which I'll discuss in
+a bit more detail here. First, it runs on the Erlang (OTP) Platform.
+If you squint a bit, PagerDuty is basically a very big and smart
+message switch. Messages flow in, intelligence and rules are applied,
+and messages flow out. I looked at Erlang before for similar systems
+that fit the "telco switch" metaphor, but never pursued it because
+I felt the language was just too primitive. Elixir solves that
+problem without throwing the proverbial baby out with the bathwater:
+it is possible to generate fully compliant OTP applications using
+just Elixir, so you can have all the coolness of zero-downtime
+upgrades and so on. Having a higher level language on this platform
+_and_ having Phoenix for the bits-that-need-a-UI makes it a very
+nice match for what we're doing (disclaimer: this does not mean at
+all that we're now rewriting everything; it was mostly a "hey,
+that's neat" moment for me).
+
+Second, just before I looked at Elixir I took another serious look
+at Lisp, and rejected it. To me, the tooling just feels too outdated
+and a lot of things feel disconnected (why do I have to configure
+my editor in Lisp dialect #1, my build in dialect #2 and have my
+code in dialect #3?). Elixir felt more modern but also manages to
+be very Lisp-like: it is not fully homoiconic, but at least has a
+very trivial syntax. It has (hygienic) macros, which are simple to
+use because the AST passed in is trivial. And the language itself
+makes a strong point about its power by being implemented, like
+Lisp, using just a couple of "special forms" but a lot of macros.
+
+Third, a pure actor system like Elixir provides is arguably the
+strongest possible form of object orientation. There are processes
+encapsulating state and all they can do is send each other messages.
+The system is also very dynamic through late binding, as the target
+of a message send is a run-time address: the process ID of the
+receiver, which can be anything. In essence, it provides exactly
+that Kay wanted (for a more in-depth look, see
+[@JEG2](http://twitter.com/JEG2) making this point in a [blog
+post](http://tech.noredink.com/post/142689001488/the-most-object-oriented-language)).
+As an old Smalltalker, this excites me a lot. Elixir has clean
+patterns for combining an API and an implementation (actor) in a
+single module that allow for compact and maintainable code and
+feel OO without actually having classes and all the other paraphernalia
+typically assiciated with OO languages.
+
+Since my initial enthusiasm, I've been doing small projects, hack
+days, and did a bit of helping out on the [Elixir Kafka
+driver](https://github.com/kafkaex/kafka_ex). So far, I haven't
+been disappointed. Elixir feels very small, very fast, easy to
+extend (including adding new tasks to Mix - it's all the same
+language), and basically is proving (again) that a simple, well
+thought-out language can be very powerful.
+
+Now how to convince my colleagues to rewrite all our code ;-)
+
+
