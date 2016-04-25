@@ -2,7 +2,7 @@
 title: evrl.com
 email: casedeg@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Mostly technical musings by Case de Groot. Expect Scala, Java, Python,
+  Mostly technical musings by Cees de Groot. Expect Scala, Java, Python,
   Agile, devops, and whatnot.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://evrl.com" # the base hostname & protocol for your site
