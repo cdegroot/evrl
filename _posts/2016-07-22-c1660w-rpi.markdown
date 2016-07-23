@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "CUPS on Raspberry Pi for HBPL1"
+date:   2017-07-22 20:26
+categories: linux
+---
+
+The Raspberry Pi 3 is a wonderful little device. I have two, one to toy with and
+one as a media box attached to the living room TV. Then my SO wanted to do AirPrint,
+so I installed CUPS and Avahi and then discovered that there are no standard HBPL1
+drivers, which my Dell C1660w needs.
+
+After some digging, I found a [PPA](https://launchpad.net/~nicholson-mark/+archive/ubuntu/ppa)
+that had patched [foo2zjs](http://foo2zjs.rkkda.com/) drivers. I'm doing a lot of compiles
+on my RPi3, so I was already setup to build the ARMv7 packages - here they are:
+
+- [printer-driver-foo2zjs-common_20160407dfsg0-1_all.deb](/deb/printer-driver-foo2zjs-common_20160407dfsg0-1_all.deb)
+- [printer-driver-foo2zjs-hbpl1_20160407dfsg0-1_armhf.deb](/deb/printer-driver-foo2zjs-hbpl1_20160407dfsg0-1_armhf.deb)
+- [printer-driver-foo2zjs_20160407dfsg0-1_armhf.deb](/deb/printer-driver-foo2zjs_20160407dfsg0-1_armhf.deb)
+
+Hope I can help someone else :-)
