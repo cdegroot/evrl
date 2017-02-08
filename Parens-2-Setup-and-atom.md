@@ -30,7 +30,7 @@ resolvers += Classpaths.typesafeResolver
 addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.0.0")
 {% endhighlight %}
 
-lets met generate an Eclipse project, and then I complete the skeleton with some [borrowed code](https://github.com/cdegroot/Parens/blob/6d2c13dbde0ec9b2997f1474a97a374804bebb48/src/test/scala/parsing/FlatSpecForParsers.scala) serve to act as the basis for getting started. The base class makes it simple to test individual parsers, which is exactly what we're about to do. 
+lets met generate an Eclipse project, and then I complete the skeleton with some [borrowed code](https://github.com/cdegroot/Parens/blob/6d2c13dbde0ec9b2997f1474a97a374804bebb48/src/test/scala/parsing/FlatSpecForParsers.scala) serve to act as the basis for getting started. The base class makes it simple to test individual parsers, which is exactly what we're about to do.
 
 The book starts with a definition of an atom, which is basically a chunk of uppercase characters. A first test is quickly created:
 
@@ -76,6 +76,6 @@ trait SymbolicExpressionParsers extends RegexParsers {
 
 and the test is green. Time to git commit and celebrate!
 
-The next installment will add basic [S-Expression parsing](Parens-3%3A-S-expressions.html). 
+The next installment will add basic [S-Expression parsing](Parens-3-S-expressions.html).
 
 _this article discusses [this](https://github.com/cdegroot/Parens/tree/6d2c13dbde0ec9b2997f1474a97a374804bebb48) version of the code_

@@ -20,4 +20,4 @@ Which is what I set out to do with the <a href="https://github.com/cdegroot/Pare
 
 For Parens I chose Scala, mostly because this project is about parsing and I like its parser combinators library a lot. The next article will describe setup (I like sbt a lot less) and the first basic test, parsing atoms.
 
-Next: [Parens 2: Setup and atom](/Parens-2%3A-Setup-and-atom.html)
+Next: [Parens 2: Setup and atom](/Parens-2-Setup-and-atom.html)
