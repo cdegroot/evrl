@@ -2,7 +2,7 @@
 layout: post
 title:  "Mocking in Elixir"
 date:   2017-03-05 13:44
-categories: elixir, tdd, mocking
+categories: elixir tdd mocking
 ---
 [Elixir](http://elixir-lang.org) is a pretty new language and as such is
 still developing patterns and adapting existing patterns to its sometimes
