@@ -32,7 +32,7 @@ introduced bits of Scala - as it was still better than just Java, and finally la
 at [PagerDuty](http://www.pagerduty.com) where Scala, certainly back then, reigned
 supreme.
 
-In ever case, the same thing happened - Scala has flaws, and they are serious enough
+In every case, the same thing happened - Scala has flaws, and they are serious enough
 to make me recommend to not use the language. In the Java ecosystem, frankly, I do
 not see any language I would like to use; Clojure comes close, but Java shines through
 everywhere and if I want to write Lisp, there are [excellent](https://www.cons.org/cmucl/)
@@ -45,7 +45,7 @@ So, on to why I think you should not use Scala, item by item, in no particular o
 ## sbt
 
 Sbt is probably the best example of what happens when you match academic thinking
-with actual code - it's a theoretically very powerful build system, but it is
+with actual code - theoretically it is a very powerful build system, but it is
 sufficiently different from regular Scala that it can be considered as a completely
 different language, so most developers just poke a bit at it. The Scala language
 is complex enough as it is, so as soon as you want to do something that is not "compile
@@ -54,15 +54,15 @@ code you don't understand from StackOverflow, and swearing a year later because 
 update broke it. It is also atrociously slow - again, it has some theoretical niceties
 like the console mode, but unless you completely adapt your workflow and live in the
 console (problem is, you can't, because code reloading ain't perfect in Java) you will
-be drinking a lot of coffee (just a clean start takes 5 seconds and triple that in CPU
-time on my laptop...).
+be drinking a lot of coffee (just a clean start takes 5 seconds wall clock and
+triple that in CPU time on my laptop...).
 
 The JVM generally has a problem with build systems - I think I tried them all, from
 GNU Make in the '90s (all we had) through ant, Maven, Gradle, sbt, and I forgot a
 couple, but they're all slow. It's a red flag to me that something is wrong in that
-ecosystem. Sbt makes things worse, and I guess you're probably better of with Maven
-or Ant, because these tools are bad as well but at least I never had trouble understanding
-an Ant file.
+ecosystem. Sbt makes things worse, and I guess you're probably better off with Maven
+or Ant, because these tools are not nice as well but at least I
+never had trouble understanding an Ant file.
 
 ## How many languages are in your project?
 
@@ -79,13 +79,13 @@ But that's not even the biggest issue - because Scala is highly non-opinionated,
 there seem to be many factions with opinions on what "proper" Scala is, from the very
 practical "a mildly better Java" to the less practical "a really nicer Haskell", you
 get a ton of sub-idioms to the point where you have entirely separate languages. If
-the type system is Turing-complete (which is great if you're a CS post-doc and need a thesis subject), no wonder that people can write code a mere mortal like me simply is not equipped to understand. In "Let a thousand flowers bloom", [Peter Seibel](http://www.gigamonkeys.com/flowers/) eloquently summarized it as:
+the type system is Turing-complete (which is great if you're a CS post-doc and need a thesis subject), it is no wonder that people can write code a mere mortal like me simply is not equipped to understand. In "Let a thousand flowers bloom", [Peter Seibel](http://www.gigamonkeys.com/flowers/) eloquently summarized it as:
 
 > Soon we had three kinds of Scala written at Twitter: Scala written by people who wished it was Ruby, Scala written by people who wished it was Java, and Scala written by people who wished it was Haskell. Let a thousand flowers bloom.
 
 People will counter me with "yes, but we have coding standards that prevent this". That is not the point. Or maybe it is. In any case, your coding standards don't count. Try to build a moderately complex project without inadvertently, through some intermediate dependency, pulling in,
 say, [Scalaz](https://github.com/scalaz/scalaz). Now your IDE eagerly shows you Scalaz
-stuff for autocompletion. Have fun untangling the mess later. Or, at least, trying to understand the library code that pulled in Scalaz and probably is written in the purely functional idiom of Scala that academics admire but mostly reminds me of Perl and other line-noise oriented programming languages. Any sufficiently complex Scala project will carry this burden around, and if your projects aren't complex, I don't think you need Scala.
+stuff for autocompletion. Have fun untangling the mess later. Or, at least, try to understand the library code that pulled in Scalaz and probably is written in the purely functional idiom of Scala that academics admire but mostly reminds me of Perl and other line-noise oriented programming languages. Any sufficiently complex Scala project will carry this burden around, and if your projects aren't complex, I don't think you need Scala.
 
 ## Refactor me! and other static typing fun
 
@@ -142,7 +142,7 @@ This blogpost is already getting too long. In general, Scala makes
 me feel like I'm back in early C++ days; a language that makes it
 extremely easy to do the wrong thing, a community that somehow
 encourages doing the wrong thing (I really think that stuff like
-Scalaz has no place outside academia), and a system that does it
+Scalaz has no place outside academia), and a system that does its
 best to work against you by slowing down feedback loops - the most
 important aspect of a good programming system is quick feedback -
 and distracting you with all sorts of stuff that rips you out of
@@ -157,7 +157,7 @@ very high productiviy.
 Summarizing: please do not use Scala, and certainly not if not using
 the JVM is an option in your organization. There are nicer ways to
 spend your life. Type inference, in my opinion, starts to look more
-and more like a hard AI problem and therefore it won't be fixed.
+and more like a hard AI problem and therefore it won't be fixed any time soon.
 In the meantime, if you really want a compiler to check your work,
 use something that allows you to opt-in; various languages support
 optional typing and allow you to, for example, run your tests for
