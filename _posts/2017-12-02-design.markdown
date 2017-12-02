@@ -1,0 +1,205 @@
+---
+layout: post
+title:  "Design"
+date:   2017-12-02 10:24
+categories: programming
+---
+There's something I need to get out of my system, and it's how we
+tend to handle design when writing code. Much has been said on this
+and I'm not sure I will actually contribute to the discussion, but
+I feel better when I have it written down. This is going to be a
+lengthy and probably quite meandering post, but it's been quite a
+while since I last
+[wrote](http://cdegroot.com/articles/1999-organic-software/) about
+the
+[subject](http://cdegroot.com/articles/2000-art-science-engineering-craft/)
+so I think it's my turn again to further pollute the internet.
+
+The trigger to write this was an internal "wiki" page (I should
+write a post about the evils of Confluence some time ;-)) where a
+design proposal for a new service is written down. People get invited
+to review it, or get referred to it, they leave comments all over
+the place (in-line, at the bottom), and I think that the poor person
+that wrote it must feel quite bad about all the flaws being pointed
+out, edge cases missed, etcetera. I call it bikeshedding, especially
+because of all the drive-by advice by people who are certainly not
+going to actually implement the service; some of them aren't even
+full-time software developers. I'd feel funny if contractors work
+at my house and the carpenter starts telling the plumber how to do
+his job...
+
+So, "design". Documents like the one on our internal wiki are
+full with diagrams and documentation and called 'designs' and I
+think that that is wrong. They are, at best, sketches of designs.
+Analogies when talking about software are always wrong and usually
+dangerous, so let's give the stage to some to help me bolster
+this agrument.
+
+Writing software has been likened to an art, a craft, and - alas -
+in colleges and universities around the world, to science and
+engineering.  In the article I wrote in 2000, I was explicitly
+neutral and just made an inventory; however, 17 years later I have
+a pretty firm position that at least the stuff that gets built in
+the sort of companies that have hired me since then is, or should
+be, created with the model of craftsmanship in mind: bespoke,
+one-off, with a nod to other disciplines where needed. This might
+be different for writing code for a nuclear powerplant (or might
+_have_ to be different, at least), but this is the situation for
+all the "internet" companies I worked for during the last couple
+of decades.  You can call yourself a "software engineer" as much
+as you want, but you are bullshitting, I hope you know it, and in
+most jurisdictions you're also not in line with the law. We are
+craftspeople and I think we should be proud of it. We're changing
+the world after all, and I think we should embrace our craft
+(partially also because it will set the stage for in-house training
+after secondary education instead of the silly, expensive, and
+entirely unnecessary route through college and, heavens forbid,
+university).
+
+So, we're like craftsmen, we build bespoke stuff and where I say
+"build" you rightfully ask "where's the design?". Let's pull two
+more analogies in. Yes, I like to dig my holes really deep.
+
+First, I've been following [Dick Gabriel](https://www.dreamsongs.com/)
+since I first met him, and I _think_ (you're never sure with him)
+that he thinks that source code is like poetry. I like that angle,
+and I'll work out the analogy myself so you don't blame him for me
+getting it all wrong: poetry is all about transmitting thoughts and
+ideas in a very restricted form, and ideally using that form to
+lift the content into art. Poetry also started, I think, as a way
+to make things easy to remember, so that bards could recite very
+long stories without having access to a written form of language.
+Source code has a lot of that: it is a restricted form of language,
+and it captures ideas and thoughts of the programmer. Good source
+code, I think, tells a story and puts the human reader first; having
+a machine execute it is almost like a side effect. This, to me, is
+also the correct order, because people will read your code over and
+over again (to change it), and they must know what the original
+programmer was thinking, why certain solutions were chosen, et
+cetera. Good source code is a poem. Where poetry approaches art, I
+think good source code does, too. Note that this is an entirely
+normal effect of good craftsmanship - look at some Shaker furniture,
+for example.
+
+But it is _also_ the design. I think that this makes software so
+unique - it plays multiple roles, and that makes analogies either
+wrong, or complex, or both. Software is simply an executable design,
+fed to a machine that interprets the design and either starts acting
+on it directly, or transforms it to something that another machine
+or the same machine can easily execute. Whether you use an interpreter
+or a compiler is not important in the discussion, the role of your
+code stays the same: it's the design. It's a wonderful craft,
+software, because as soon as you have finished your design, you're
+done - everything to transform your design into something that
+actually interacts with the world is automated, and very fast. Even
+if you use, say, C++, the build time is negligible to the amount of time
+spent fine-tuning the design and nowhere near the time it takes to
+build physical stuff like buildings or planes or cars. Also, if
+your product tells you there are design flaws, you don't need to
+go through expensive recalls after design changes - you change the
+design, re-create the product, and are done with correcting the
+issue in minutes or hours. Truly a wonderful way to work.
+
+So, my analogies line up as: developing software is a craft, skilled
+labour to create executable designs that should have the good
+qualities of poetry. Probably not what your university prof told
+you in 101 Computer Science, but in my experience this is a useful
+analogy and it holds up quite well under scrutiny. I urge you to
+think about it and see where it leads you. At the very least it
+should be an interesting thought experiment.
+
+So what is the role of this wiki page that someone wrote and called
+"design for my new servce"? Well, it is not _the_ design. And to
+have a design of the design sounds to me a tad circular, so I think
+it is safe to conclude that the label is wrong.  The reason, of
+course, that people label discussions about software as "design"
+is because they have been imprinted with the misconception that
+software is the product and then something not-software is needed
+to play the role of the design.
+
+I do think it is important to think about what you need, and what
+some constraints and requirements are before starting out to design
+it, but our craft has designs that are so malleable and feedback
+from producing executable machine code from these designs is so
+quick that it is not only possible to start out early, I think it's
+mandatory. If you don't start writing code very soon, you are missing
+out on all the good bits that it has to offer. Do make some charcoal
+sketches of what you want, but let that not mislead you into thinking
+that they are a useful model - at best, they're thinking aids. At worst,
+they're the equivalent of handing someone with writers block a sketchpad
+and a "Doodling for Dummies" book: a great way to postpone the actual work.
+
+Instead, use the power of increments and iteration to its fullest
+and let the design tell you what it needs. Don't waste your time
+on making nice diagrams if you can write code and let the code tell
+you what you missed. That feedback is real; the bikeshedding on
+that wiki page? Theoretical.
+
+Here are some tools to maximize the power of feedback:
+
+## Test-driven design
+
+Write a test. What does your software need to do? Write it down,
+run it, make it green. If you write new code, start with a test and
+nothing else and your final design will be pretty exact. I always
+regret it when I think I know the problem well enough to start
+writing code - the best code gets written by tests.
+
+Now, don't get me wrong - I do not buy that you can start with a
+blank mind and just write a test and let that drive _all_ of your
+design. I think you want to make some quick sketches and you should
+have an idea of where to go. Just make sure you test your ideas,
+all the time. It will quickly separate the good ideas from the silly
+ones. I've been writing code for 40 years, and I still manage to
+come up with really silly ideas (I call it "creativity". Feel free
+to label it as "stupidity", though). TDD and refactoring to remove
+the stupid stuf is your saving grace.
+
+## Postpone decisions
+
+We have the power to postpone decisions and still get useful feedback
+from early production runs, especially when you start by writing
+tests. You do not need a database, or a message queue, or deployment
+scripts, or all that boring stuff around operability to flesh out
+a design. You can have test dummies, you can replace a database by
+an in memory structure. Just focus on the business logic,
+make that nice. Ignore your ideas about Kafka and S3 and Bigquery
+and Kubernetes and whatnot, just solve the customer's problem.
+
+_Then_ try running that in a production-like environment and see
+what you are missing (incoming data is already on that message
+queue? Ok, we must have a consumer now) and what you'd like (not
+want to re-read a year worth of events on startup? Ok, so we need
+to stash some state somewhere). Try to cheat as much as possible,
+only do the minimum. Have integratin tests tell you what that minimum
+is.
+
+## Treat code as your primary artefact
+
+Because it is your primary artefact. It is your design, both to
+communicate to fellow human beings and to the machines we use to
+build and execute our product. Don't talk about diagrams, talk about
+code. If you have an "operability-free" business model, you probably
+have some _very_ concise code you can show to others, review together,
+and discuss. It's way more concrete than a diagram, it shows the
+edge cases you thought about in your test suite, so it should
+sollicit much better feedback than people going all "what if?" on
+a diagram. And it's a minimal design, more fit for debate than for
+execution, so it should prove easy to change if you change your mind.
+
+## Be a poet
+
+Nice code is often good code. Even if it has bugs, these are simple
+to verify with a test and easy to fix. So even while eventually a
+machine will have to execute your design, think about the other
+people (including future you) first and write your code for them.
+When I once showed [Chris
+Alexander](https://en.wikipedia.org/wiki/Christopher_Alexander) how
+his ideas about design patterns influenced our practice and walked
+him through some test driven development I was doing, he exclaimed
+"so good code has a rhythm!". I think he was right. Good code has
+a rhythm, the drum being beat by tests; good code reads like a poem,
+the metric and rhyme dictated by your language.
+
+Enjoy your craft and be a poet and your code will be good.
+
