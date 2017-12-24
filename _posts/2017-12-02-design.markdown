@@ -126,7 +126,7 @@ mandatory. If you don't start writing code very soon, you are missing
 out on all the good bits that it has to offer. Do make some charcoal
 sketches of what you want, but let that not mislead you into thinking
 that they are a useful model - at best, they're thinking aids. At worst,
-they're the equivalent of handing someone with writers block a sketchpad
+they're the equivalent of handing someone with writer's block a sketchpad
 and a "Doodling for Dummies" book: a great way to postpone the actual work.
 
 Instead, use the power of increments and iteration to its fullest
@@ -171,12 +171,12 @@ what you are missing (incoming data is already on that message
 queue? Ok, we must have a consumer now) and what you'd like (not
 want to re-read a year worth of events on startup? Ok, so we need
 to stash some state somewhere). Try to cheat as much as possible,
-only do the minimum. Have integratin tests tell you what that minimum
+only do the minimum. Have integration tests tell you what that minimum
 is.
 
 ## Treat code as your primary artefact
 
-Because it is your primary artefact. It is your design, both to
+Because it _is_ your primary artefact. It is your design, both to
 communicate to fellow human beings and to the machines we use to
 build and execute our product. Don't talk about diagrams, talk about
 code. If you have an "operability-free" business model, you probably
