@@ -86,7 +86,7 @@ spreadsheet is what convinced me that the cost argument doesn't
 hold. 
 
 Why? Without going into details - you can do the math yourself - the
-premisse of pair programming is that bugs are expensive to fix, that
+premise of pair programming is that bugs are expensive to fix, that
 by having more eyes on the code you will have less bugs, and that
 the lower cost of bugfixing will make the higher up-front investment
 go away. Superficially, that all seems to make sense.
@@ -108,7 +108,7 @@ good practices that promote lower defect rates, and this was
 all before we had nice code analysis tools, continuous integration
 systems, etcetera. In the '90s, there was a large cost of software
 distribution to be factored in but for most companies in the SaaS/Web
-field these days, that cost is zero. If I have a bug in production, 
+field these days, that cost is close to zero. If I have a bug in production, 
 I fix it, hit merge, and five minutes later it is deployed. The
 argument that bugs are expensive to fix simply doesn't hold anymore, 
 which removes one of the major reasons for coping with the large
@@ -133,31 +133,33 @@ invalidate my take on that pairing is just one of the practices that
 promotes collective code ownership and learning. But remember, these
 people were sitting in a single room _and_ were very disciplined about
 their pairing practice. Over the years, I practiced "good pairing" a 
-lot and it is great fun - I'm not saying it makes economic sense because 
-it's fun though ;-). 
+lot and it is great fun - I'm not saying it makes economic sense, but
+it certainly is a fun way to work. It's very intense as well, and hard
+to keep up for long.
 
 It goes something like this:
 
-* You walk to a shared workstation, either specifically setup, or a new
-user login with a simple IDE. In Smalltalk, this was simpler as the IDE 
-and the runtime are pretty much inseparable and teams would heavily modify
-the IDE during a project but this would be run through the same mechanism
-as "production" code; everybody therefore ran the exact same IDE. Not having
-to hunt for keyboard shortcuts and menu locations is hugely important when
-you're trying to write code;
-* You look at the task at hand, and probably break it down in little steps;
+* We walk to a shared workstation, either specifically setup, or a
+new user login with a simple IDE (and let's hope that you both agree
+on Qwerty vs Dvorak). In Smalltalk, this was easy as the IDE and the
+runtime are pretty much inseparable and teams would heavily modify the
+IDE during a project but this would be run through the same mechanism as
+"production" code; everybody therefore ran the exact same IDE. Not having
+to hunt for keyboard shortcuts and menu locations is hugely important
+when you're trying to write code;
+* We look at the task at hand, and probably break it down in little steps;
 * The first little step gets implemented as a test by (say) me - the
 test fails, of course;
 * I smile and hand the keyboard to you, and you go to work on fixing the
 test, thinking out loud; I reflect on what we're doing. One person is 
-thinking tactically (are we doing the thing right), the other person more
-strategically (are we doing the right thing);
+thinking tactically ("are we doing the thing right?"), the other person more
+strategically ("are we doing the right thing?");
 * You fix the test, we decide the code is ok, nothing to refactor, so you
 write the next test, when it shows red, bounce the keyboard back to me
 and I start writing code;
 * Ad Infinitum. Usually I'd like to couple this with a [Pomodoro](https://francescocirillo.com/pages/pomodoro-technique) (25 minute
-code time, 5 minute break) rythm with longer breaks every two or three
-pomodori.
+code time, 5 minute break) work rhythm with longer breaks every two or three
+pomodori. This is an intense way of working and regular breaks help.
 
 The requirements here are: we have a common shared IDE, we have the
 same worktimes, and we can bounce the keyboard between us. From my
@@ -169,30 +171,30 @@ are aligned in terms of work time, then the very important practice of "Move Peo
 gets killed. Two people will pair for days and then be surprised if a third person
 looks at the code and goes all ballistic. The method of pairing described here makes
 the hardest part of pairing - changing drivership at times - a natural and simple
-thing to do and therefore in my experience it's the only way that works.
+thing to do and therefore in my experience it's the only way that really works well.
 
 Summarizing:
 * If you pair with the same person all day or for days, you're doing it wrong;
 * If you pair in my environment or your environment, you're likely doing it wrong unless we use the same IDE;
-* If you pair remotely using some screensharings where only one persoe can effectively drive, you're _certainly_
+* If you pair remotely using some screensharings where only one person can effectively drive, you're _certainly_
 doing it wrong;
 * If you pair without TDD, you're probably doing it wrong, too. 
 
-Note that I'm not advocating that you _should_ write code in pairs
-(because I still think that the defect reduction downstream is not large
-enough to make up for the increase in investment upstream), just that
+Note that I'm still not advocating that you _should_ write code in pairs,
+just that
 if you insist on doing it you need to be mindful about why pairing is
-supposed to lower defects: the switching between driver and follower
+supposed to work: the switching between driver and follower
 ensures that people alternate between learning and reflecting, that
 design issues are captured early by reflecting, and that you don't fall
 into antipatterns like the subject matter expert typing and the junior
 or intern just staring at the screen in ever increasing bewilderment,
-leaving it up to the assertiveness of the second person to pull the
+leaving it up to the assertiveness of the latter person to pull the
 emergency brake (hint: the emergency brake will usually not be pulled).
 
 In other words: don't pair on coding, it's too expensive, but if for some reason you
 do want to pair please check all the boxes that make it work and make it a fun and
-productive, albeit expensive, experience.
+productive, albeit expensive, experience. And do have a good explanation about why
+you think spending the extra money is worth it :)
 
 ## Other ways to do the same
 
@@ -236,14 +238,15 @@ is a mistake in itself; you need them to learn. Small tasks gives you a safe lea
 * Hand over your work by submitting it for code review. I like to use a "ready for review" and 
 "in review" lane. A team member looking for work will pull reviews before new work (according to
 the mantra "stop starting and start finishing"), review your code, and assuming it's all good
-do the pull request merge and deploy (if not using CD). Only if major issue pop up you'll be pulled
+do the pull request merge and deploy (if not using CD). Only if major issues pop up you'll be pulled
 from your work and you should hook up to review the design (I would, frankly, rather not do that
 through Github or Gerrit comments alone - they serve as useful annotations but, if possible, do
 have a 1:1 chat on the issues before going into a long back-and-forth about a design issue). 
 
-Small tasks enable rotation (the "Move People Around" practice of XP), code review enable
+Small tasks enable rotation (the "Move People Around" practice of XP), code review enables
 multiple eyes on the code. As you move people around, you don't need more than one extra set
-of brains - adding two, three, four reviewers just burns time with little payback. 
+of brains. Adding two, three, four reviewers just burns time with little payback - rotation
+guarantees that everybody, in time, will be exposed to everything. 
 
 ## When to pair
 
@@ -255,23 +258,27 @@ idea that "pairing is good". Here are a couple:
 * Ramp-up of a new team member. Lots of setup needs to be done, and
 that is never documented to the extent that a newcomer can go at it
 alone. Also, ramp-up work can be less synthetic if you start collaborating
-on real work - the new member should feel part of the team quicker and
+on real work - the new member will feel part of the team quicker and
 get an early sense they're contributing, which is typically not the case
 if your first month consists of fixing P4 tickets. Having the first two weeks
 of onboarding consist of a lot of planned collaborative work can really speed
 up the process. Investment here pays off, so the arguments on cost don't hold. 
 * Specific learning. A team member lacks a skill, maybe for the specific ticket
-that just got pulled in, and is the only member that has this; do a 1:1 knowledge
+that just got pulled in, and is the only member that has this knowledge gap. Do a 1:1 knowledge
 dump session where a more experienced person can guide. However, if more than 
-one team member is lacking knowledge, skills, 1:1 sessions don't really scale
+one team member is lacking knowledge or skills, 1:1 sessions don't really scale
 well so start with a tech talk, a group session, writing docs, collecting 
 materials for self-guided study, etcetera.
 
-People often argue that spikes and other off-the-beaten-path work should be done in pairs, but I disagree:
-spikes are tentative, throw-away work, often involve a lot of reading and puzzling and surfing the
-web (an activity which used to be called "desk research" but now is basically just hanging around in Google), 
-etcetera. I've tried that in pairs, but it's inconvenient (reading speeds differ too much, etcetera) and
-by doubling the investment in a spike you're not necessarily get a better outcome. 
+People often argue that spikes and other off-the-beaten-path work should
+be done in pairs, but I disagree: spikes are tentative, throw-away work,
+often involve a lot of reading and puzzling and surfing the web (an
+activity which used to be called "desk research" but now is basically just
+hanging around in Google), and so on. I've tried that in pairs, but it's
+inconvenient (reading speeds differ too much, meaningful collaboration on
+finding docs is hard) and by doubling the investment in a spike you're
+not necessarily get a better outcome. Let one person go at it for one
+or two days and have them report back to the team during stand-up.
 
 ## Team bonding
 
@@ -280,16 +287,15 @@ depending on their composition, have various needs for specific activities direc
 at some form of cohesion, and I think a good scrum master or agile coach should be 
 primarily responsible for identifying the average need, working with outliers to 
 bring them to the average (or at least convince them to "play along"), and take it
-from there. Pairing _may_ be a tool in the toolbox, a reason I think it's a good 
-idea to do it with new team members for a short period to get to know everybody, 
+from there. Pairing _may_ be a tool in the toolbox, 
 but it's not a panacea and certainly not a tool that should just be deployed
 nilly-willy because "team cohesion". Some teams will be sufficiently cohesive
-without any work, some just need some work shuffling, and some need actual work; my
+without any work, some just need some ticket shuffling, and some need actual work; my
 preference is to let the agile coach figure out what's needed and work with the team
 on explicit and tailored practices rather than just waste a lot of the company's 
 money on pairing. 
 
-# Conclusion and TL;DR
+## TL;DR
 
 Pairing has one known downside: doubling the cost of development time
 and thus potentially halving a team's velocity. The advertised benefits
