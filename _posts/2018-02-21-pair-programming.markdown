@@ -97,7 +97,7 @@ all the time, of course). So you need to slash the bugfixing work
 by half if you just want to break even on bug fixing time, but 
 you've still spend twice the amount of time writing the code, so you
 probably need to really trounce the number of bugs by a factor of
-ten or so. By that reasoning alone, you need to be very convinved
+ten or so. By that reasoning alone, you need to be very convinced
 of the benefits of pair programming to go at it 100% of the time. 
 
 But there's a more important aspect: in the diagram above, 
@@ -163,7 +163,7 @@ pomodori. This is an intense way of working and regular breaks help.
 
 The requirements here are: we have a common shared IDE, we have the
 same worktimes, and we can bounce the keyboard between us. From my
-experience, these are the only circumstancese where pairing as a coding practice
+experience, these are the only circumstances where pairing as a coding practice
 makes sense. Furthermore, not just "a pair" needs to have the same 
 worktimes, the whole team pretty much has to: you want to typically switch
 pairs around lunch and at the start of the day, and if only two or three people
