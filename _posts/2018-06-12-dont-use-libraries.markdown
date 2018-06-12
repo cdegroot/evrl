@@ -33,28 +33,29 @@ Ember application above, the application-specific code is fairly simple; it's ar
 has 200 defects. Your addiction to code reuse added another 10,000. Some of these will be crashes, some of these will be security
 risks, you don't know. And you won't, until it is too late.
 
-* That package does everything for everybody and almost what you need for your own problem. [Noboy stunts their
+* That package does everything for everybody and almost what you need for your own problem. [Nobody stunts their
 frameworks](https://www.artima.com/weblogs/viewpost.jsp?thread=8826~) so you will typically pull in a ton of code you don't need and the API will
 be almost what you need but cluttered with options and configuration to make it as generic as possible. It will cost you time
 to figure out what to do, how to use the dependency, and you will have to accept that the code will likely run slower than
-something you crafted yourself because it is also catering to the 500 slightly different use cases of other users o the
+something you crafted yourself because it is also catering to the 500 slightly different use cases of other users of the
 library.
 
 * Deep dependency hierarchies are akin to deep class hierarchies with multiple inheritance. Inevitably, the "diamond pattern" will
-come back and bite you. Maybe not now, but worse: in half a year when you upgrade an entirely unrelated dependency you will get
+come back and bite you. Maybe not now, but then in half a year when you upgrade an entirely unrelated dependency you will get
 the dreaded version conflict from your package manager and you know you're in for a couple of hours of puzzling over how to reconcile
 the conflicting dependency specifications, probably by upgrading that other dependency as well, and then you find out that it changed
 its API so you can redo your code. You'll be doing this pretty much all the time if you want to make sure that you don't depend,
-directly or indirectly, on packages that have known security holes.
+directly or indirectly, on packages that have known security holes. Or you can just stay on Rails 2 and hope for the best, of course...
 
 "Code reuse" is not an end. It's a tool in your toolbox, and there are alternatives to reusing code. Often, it's just simpler
 to write the code yourself. Yes, you will write the same code as someone else on this planet. I bet you're writing the same code
-as developers at your competitors as well, and I don't think that's a good basis for decision making.
+as developers at your competitors as well, and I don't think that trying to avoid double work on a planetary scale is a good
+basis for decision making.
 
 Dave "PragDave" Thomas coined his ["rule of design"](https://www.infoq.com/articles/increasing-agility-dave-thomas) which isn't original
 probably because it is so true in software development: "Good design makes future change easier than bad design." In 1999, I called
 it [malleability](http://cdegroot.com/articles/1999-organic-software/) and others who spent more thought on the subject than I have
-came up with similar advice. It does seem to be the major principle for software design.
+came up with [similar advice](https://www.martinfowler.com/ieeeSoftware/accChange.pdf). It does seem to be _the_ major principle for software design.
 
 That rule is much closer to being a goal by itself than "code reuse". If anything, this is an overarching design strategy that, when you think
 through it, will let you derive strategies like Single Responsiblity Principle, Dependency Injection, etcetera. Given that code reuse through
@@ -62,7 +63,7 @@ including packages has a bunch of trade-offs, I guess it is useful to look at "s
 and consider the trade-offs in the light of the overall "keep your code malleable" trade-off.
 
 What is easier to change in the future? Code that freely flows in one idiom of your chosen language, or code you have to adapt in order to
-pull in a library with 20 subroutines of which 2 are useful to you? What is easier to adapt to your changing requirements? Your own code
+pull in a library with 20 subroutines, 2 of which are useful to you? What is easier to adapt to your changing requirements? Your own code
 or something that needs to be changed by forking and sending pull requests to total strangers? Is including an npm package that has
 [a longer usage blurb than actual code](https://www.npmjs.com/package/home-or-tmp) really making your life easier? Is this code really
 that hard to write? Weren't you trained to write code, not cobble it up by borrowing from strangers, competitors even? What time are
