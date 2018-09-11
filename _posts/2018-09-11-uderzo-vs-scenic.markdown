@@ -5,7 +5,7 @@ date:   2018-07-08 20:24
 categories: programming elixir
 ---
 At ElixirConf 2018, [Boyd Multerer](https://github.com/boydm) finally announced
-[Scenic](https://www.youtube.com/watch?list=PLqj39LCvnOWZMVugtyKlHMF1o2zPNntFL&v=77FW-jrCyCs),
+[Scenic](https://www.youtube.com/watch?v=1QNxLNMq3Uw&list=PLqj39LCvnOWaxI87jVkxSdtjG8tlhl7U6&index=51),
 his Elixir-native UI. Since I've been
 [dabbling](https://github.com/cdegroot/uderzo_poncho) in the same space,
 I thought it'd be interesting to write up a quick post.
