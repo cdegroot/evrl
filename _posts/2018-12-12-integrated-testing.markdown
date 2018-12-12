@@ -18,7 +18,7 @@ don't test whether the 10 lines of code you just wrote are correct, but also the
 below that and a couple of million lines in, say, MySQL. These tests are a scourge.
 
 Just yesterday I changed some code which essentially added two lines to an Elixir "application" (in
-Elixi/Erlang/OTP, an "application" is basically a course-grained component and I'm gonna use the
+Elixir/Erlang/OTP, an "application" is basically a course-grained component and I'm gonna use the
 word "component" going forward to not make this language/platform specific). One line to grab
 a number from a new component I wrote, and one line to actually insert that number in an outgoing
 Kafka message.
