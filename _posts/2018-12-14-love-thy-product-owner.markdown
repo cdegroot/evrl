@@ -118,7 +118,3 @@ constantly hunting for new tools.
 Chose a stack, stick with it. Embrace the law it lays down, as it lets you
 focus; love thy product owner, because a decent one will put the pressure on
 your team that will help you excel.
-
-And if you don't believe Goethe was right: imagine paying $75 to go to a stadium
-to watch a sport where the only agreement is that the field is grass and everything
-just gets made up on the fly.
