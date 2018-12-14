@@ -42,7 +42,7 @@ Here's the poem translated by David Luke:
 >And law alone can set us free again.
 >
 
-The last two sentences are the interesting ones, and I keep coming
+The last three lines are the interesting ones, and I keep coming
 up at situations where they apply, especially at work.
 
 A lot of people, especially those newer to the field, are awed by
