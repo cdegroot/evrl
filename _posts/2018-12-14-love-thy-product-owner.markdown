@@ -4,8 +4,8 @@ title:  "Love thy product owner..."
 date:   2018-12-14 20:24
 categories: programming
 ---
-People regularly find me quoting a Goethe poem called "Art and Nature". I
-do that to look smart, of course. It is the only Goethe poem I've read
+People regularly find me quoting a Goethe poem called "Art and Nature".
+It is the only Goethe poem I've read
 and remembered (except probably during German classes in highschool,
 but that's repressed memory), and the bit I quote is at the far end;
 I like to quote it because it contains such a cardinal truth in such
