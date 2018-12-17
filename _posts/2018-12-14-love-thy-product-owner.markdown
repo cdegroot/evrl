@@ -90,22 +90,23 @@ talking and start typing?
 As the prime representative of the business you're working in, your product
 owner will rub your nose in the dirty every day reality of doing business
 and will make you clear that playing in the sandbox with new toys is not
-something that will make him, or by extension the business, happy.
+something that will make them, or by extension the business, happy.
 
-He restricts you. He's the "limitation" in Goethe's poem. Your company's
-architecture, chosen stack, tools, and production platform is the law. They
-work together to allow you to shine, set you free, and show your mastery. Mastery
-in solving business problems by focusing at the domains I listed above, and
-becoming really good at them. Not mastery by getting a new tool from the shelf
-and applying it because a) it's more fun that way and b) maybe it _will_ actually
-solve your problem this time. There's a time and space for that, of course,
+Your product owner restricts you. They are the "limitation" in Goethe's
+poem. Your company's architecture, chosen stack, tools, and production
+platform is the law. They work together to allow you to shine, set you
+free, and show your mastery. Mastery in solving business problems by
+focusing at the domains I listed above, and becoming really good at
+them. Not mastery by getting a new tool from the shelf and applying it
+because a) it's more fun that way and b) maybe it _will_ actually solve
+your problem this time. There's a time and space for that, of course,
 but make "innovation" the exception, not the norm.
 
 The norm is good, honest, writing code. The best code you can deliver
 and that makes your business happy now and in the future. Sure, learn new
 languages, toy with new tech - it's important to see what's out there because
 some day, your PO will come with a new idea and one of the things you toyed with
-8 months ago seems to fit the bill _exactly_. But it's a side gig, and frankly
+8 months ago seems to fit the bill _exactly_. But it is a side gig, and frankly
 mostly an optimization; your real leverage sits in your core skills. Writing
 good code is hard, but delivering good code is extremely fulfilling. And it
 is more satisfying than chasing new shinies, toying with tools that come and
