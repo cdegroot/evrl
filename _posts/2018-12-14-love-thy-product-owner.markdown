@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Love thy product owner..."
-date:   2018-12-14 20:24
+date:   2018-12-18 20:24
 categories: programming
 ---
 People regularly find me quoting a Goethe poem called "Art and Nature".

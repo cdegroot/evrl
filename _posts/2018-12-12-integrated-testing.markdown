@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Integration testing considered harmful"
-date:   2018-07-08 20:24
+date:   2018-12-12 20:24
 categories: programming testing
 ---
 I just watched [J.B. Rainsberger](https://www.jbrains.ca/)'s talk
