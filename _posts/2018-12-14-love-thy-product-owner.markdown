@@ -119,3 +119,6 @@ constantly hunting for new tools.
 Chose a stack, stick with it. Embrace the law it lays down, as it lets you
 focus; love thy product owner, because a decent one will put the pressure on
 your team that will help you excel.
+
+_(If you made it here: thanks for reading, and big thanks to
+[@dileshnij](https://twitter.com/dileshnij) for proofreading multiple times!)_
