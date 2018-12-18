@@ -89,7 +89,7 @@ talking and start typing?
 
 As the prime representative of the business you're working in, your product
 owner will rub your nose in the dirty every day reality of doing business
-and will make you clear that playing in the sandbox with new toys is not
+and will make it clear that playing in the sandbox with new toys is not
 something that will make them, or by extension the business, happy.
 
 Your product owner restricts you. They are the "limitation" in Goethe's
