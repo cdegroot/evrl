@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Uderzo vs Scenic"
-date:   2018-07-08 20:24
+date:   2018-09-11 20:24
 categories: programming elixir
 ---
 At ElixirConf 2018, [Boyd Multerer](https://github.com/boydm) finally announced
