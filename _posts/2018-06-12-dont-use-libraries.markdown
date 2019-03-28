@@ -34,7 +34,7 @@ has 200 defects. Your addiction to code reuse added another 10,000. Some of thes
 risks, you don't know. And you won't, until it is too late.
 
 * That package does everything for everybody and almost what you need for your own problem. [Nobody stunts their
-frameworks](https://www.artima.com/weblogs/viewpost.jsp?thread=8826~) so you will typically pull in a ton of code you don't need and the API will
+frameworks](https://www.artima.com/weblogs/viewpost.jsp?thread=8826) so you will typically pull in a ton of code you don't need and the API will
 be almost what you need but cluttered with options and configuration to make it as generic as possible. It will cost you time
 to figure out what to do, how to use the dependency, and you will have to accept that the code will likely run slower than
 something you crafted yourself because it is also catering to the 500 slightly different use cases of other users of the
