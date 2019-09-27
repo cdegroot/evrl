@@ -129,3 +129,16 @@ two main directories:
 I've found the code well-readable and reasonably commented, so to me it has been a fallback that, while not
 needed often, has proven an invaluable resource during that one or two times I really needed to know what
 was going on.
+
+## Updates
+
+I'm happy that some people came back with excellent suggestions of more material to read:
+
+* [Erlang in Anger](https://www.erlang-in-anger.com/). Yes, I slapped my head when someone mentioned that one. I really, really
+  should have included it. It's a great resource about debugging.
+* [Efficiency User's Guide](http://erlang.org/doc/efficiency_guide/users_guide.html). The name is a bit odd, but most of the material
+  in here is a good read. Start maybe with the chapter on performance myths.
+
+The guide also has a chapter on binaries and that one is really important to read. You will end up in a situation where having some
+knowledge about binaries and their allocation and garbage collection strategies are going to matter, and a [very timely example](https://medium.com/@tylerpachal/tracking-down-an-ets-related-memory-leak-a115a4499a2f) was just published by my colleague Tyler Pachal on Medium. It's a great read on why all of the above
+actually really matters.
