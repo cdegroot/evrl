@@ -117,8 +117,8 @@ functions to match specifications, and a neat exercise would be to create one fo
 
 I'm out of ideas here but if you completed the above, you're well underway on the path towards expertise; what's
 more, you can probably find where things are now. There's always a point, though, where you want or need to
-know _exactly_ what is happening. To that end, I always have a checked out copy of the [OTP source code](http://erlang.org/doc/apps/erts/match_spec.html) lying around, built and ready to go if I want to add some debugging
-`printf()` statements or just want to lookup what is happening (I also have the [Elixir source code](http://erlang.org/doc/apps/erts/match_spec.html) always checked out, but it is simple enough to jump from documentation to source code on Hexdocs so there's a bit less need for that).
+know _exactly_ what is happening. To that end, I always have a checked out copy of the [OTP source code](https://github.com/erlang/otp) lying around, built and ready to go if I want to add some debugging
+`printf()` statements or just want to lookup what is happening (I also have the [Elixir source code](https://github.com/elixir-lang/elixir/) always checked out, but it is simple enough to jump from documentation to source code on Hexdocs so there's a bit less need for that).
 
 Want to know what happens if you write `Kernel.send/2`? Grab the OTP code, and dive right in. There are
 two main directories:
