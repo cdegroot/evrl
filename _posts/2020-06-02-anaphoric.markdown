@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Fun with macros: anaphoric lambda"
-date:   2019-09-24 01:02:03
+date:   2020-06-02 01:02:03
 categories: programming elixir lisp
 ---
 In ["On Lisp"](https://en.wikipedia.org/wiki/On_Lisp), Paul Graham introduced the concept of "anaphoric macros",

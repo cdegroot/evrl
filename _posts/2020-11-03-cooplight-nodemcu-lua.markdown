@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Building a chicken coop dusk timer with NodeMCU and Lua"
-date:   2019-09-24 01:02:03
+date:   2020-11-03 01:02:03
 categories: programming iot nodemcu lua
 ---
 One of the more fun bits of hardware I have acquired in the last
@@ -13,15 +13,15 @@ development board.
 This little board contains the [Espressif ESP8266 WiFi-enabled
 microcontroller](https://www.espressif.com/en/products/socs/esp8266/overview)
 which packs a punch: a 32bit RISC processor clocked at up to 160MHz,
-on board WiFi, and the NodeMCU board adds power management, 4MB
-flash, and some odds and ends without increasing the footprint much
-beyond a small Arduino. The best thing is that your local store
-will have it for around $5 and if you source if from China for
-around a dollar and change. I'm a big fan of Elixir and especially
-[Nerves](https://www.nerves-project.org/), but I'm also Dutch and
-therefore a cheapskate - I'll use a cheaper part if I can and the ESP8266
-displaces a lot of stuff where years ago, you would only have considered
-a Raspberry Pi.
+on board WiFi, very power-efficient "deep sleep" modes, and the NodeMCU
+board adds power management, 4MB flash, and some odds and ends without
+increasing the footprint much beyond a small Arduino. The best thing
+is that your local store will have it for around $5 and if you source
+if from China for around a dollar and change. I'm a big fan of Elixir
+and especially [Nerves](https://www.nerves-project.org/), but I'm also
+Dutch and therefore a cheapskate - I'll use a cheaper part if I can and
+the ESP8266 displaces a lot of stuff where years ago, you would only
+have considered a Raspberry Pi.
 
 NodeMCU is a development board and an SDK, and the SDK is in one of my
 favorite little languages, [Lua](https://www.lua.org/). Lua was made
@@ -43,15 +43,16 @@ as day-olds and we certainly did not teach them how to swallow a young frog
 whole. We let ours free roam and being excitable and curious creatures they
 often forget to check back into the coop in time. So they enter a dark coop
 around dusk, cannot see the roost, and then sleep somewhere else with the
-risk of being pooped on by the ones that did make it back in time. We see
-that on the coop cam (a Wyze 2, never owned a very small cube that runs Linux
-and talks to me before), get up, and rectify the situation manually.
+risk of being pooped on by the ones that did make it back in time. Every night,
+we check them on the coop cam (a Wyze 2, never owned a very small cube that runs Linux
+and talks to me before), notice it happened again, get up, and rectify the
+situation manually.
 
 Therefore, what's needed is some extra light around dusk.
 
 The simplest definition of "dusk" is "when it gets darker", and I started
 hooking up a photoresistor to the dev board's A/D converter, which worked
-fine (see, I'm an electronics whizz!) but then I thought about how to
+fine, but then I thought about how to
 calculate, with certainty, that it gets darker because of dusk and not because
 of a thunderstorm. Yes, I could have just pivoted and turned the "dusk light"
 into a "it is getting somewhat dark for any ol' reason" light, but I was not
@@ -59,7 +60,7 @@ ready to do that yet. Therefore, I needed a way to know what time it was,
 probably. I said that NodeMCU comes with a rich standard library so I was
 very happy to find the [`sntp`](https://nodemcu.readthedocs.io/en/release/modules/sntp/) module, a simple NTP client.
 
-Hmm... so if I know, with NTP precision, what time it is can't I just _calculate_
+Hmm... so if I know, from NTP, what date it is can't I just _calculate_
 dusk instead of relying on a photoresistor? Less hardware, more software, just
 up my alley. Not a lot of stuff from Lua land came up, but Wikipedia has an
 entry on the [Sunrise Equation](https://en.wikipedia.org/wiki/Sunrise_equation)
@@ -82,15 +83,20 @@ function test_sunrise_sunset()
    assert_equal("2459154.9966005", ""..rise)
    assert_equal("2459155.2098313", ""..noon)
    assert_equal("2459155.4230621", ""..set)
+end
 ```
 
 Note the string compares - pure laziness, because `lunit` does not have
 something to compare floats with a delta and I was not going to let me
-be sidetracked in finding something else/better or even writing something
-from scratch. The code was a relatively simple transcription from Wikipedia,
+be sidetracked in finding something else/better or even writing a small test
+framework from scratch. The code was a relatively simple transcription from Wikipedia,
 with some thinking over where to put degree-to-radian conversions as Wikipedia
-worked in degrees but most math libraries want, for good reasons, radians. Without
-further ado, I landed on this:
+worked in degrees but most math libraries want, for good reasons, radians. It disagreed with the National Research Council of Canada's calculations by one or two minutes,
+which could simply be because of altitude corrections. I decided that for my application, this was immaterial so I manually verified the calculated results and punched them
+back into the test assertions as a future safety net, hence the very precise numbers
+the test uses to compare.
+
+Without further ado, I landed on this:
 
 ```lua
 local sunrise_sunset = function(lat, lng, jd)
@@ -120,7 +126,11 @@ local sunrise_sunset = function(lat, lng, jd)
 end
 ```
 
-Note that this works with [Julian dates](https://en.wikipedia.org/wiki/Julian_day) which I think is a concept that deserves more attention in the software world. Given that both the POSIX timestamp and the Julian date are offsets from a given epoch, the conversion is trivial:
+Note that this works with [Julian
+dates](https://en.wikipedia.org/wiki/Julian_day) which I think is a
+concept that deserves more attention in the software world. Given that
+the POSIX timestamp and the Julian date are both offsets from a given
+epoch, the conversion is trivial:
 
 ```lua
 local posix2julian = function(posix_timestamp)
@@ -128,17 +138,19 @@ local posix2julian = function(posix_timestamp)
 end
 ```
 
-Where the `2440587.5` represents the difference between 1970 and 4713BC. One odd
-thing happened with my code which was a headscratcher until I realized that
-the epoch starts at noon (UTC) and not midnight, and that cost me a lot of time.
-I could not understand why the outcomes where half a day off :).
+Where the `2440587.5` represents the difference between 1970 and
+4713BC. One odd thing happened with my code which was a headscratcher
+until I realized that the Julian epoch starts at noon (UTC) and not
+midnight, and that cost me a lot of time.  I could not understand why
+the outcomes where half a day off :).
 
 I wrote the code and tests on my Linux box, but the same code worked on the
 ESP8266 once I rebuilt the firmware with two options:
 * Use the included Lua 5.3 instead of the default Lua 5.1; the 5.3 version
   includes the `math` standard libraries;
-* Realize just how bad single precision flaoting point works for this sort
+* Realize just how bad single precision floating point works for this sort
   of stuff and switch Lua to double precision.
+
 Once that was done, everything worked fine. I now had a microcontroller that
 could, theoretically, ask the Net for the exact date and calculate sunset from
 there. My first computer was a TRS-80 so yeah, mind blown.
@@ -162,8 +174,8 @@ ntp_sync()
 `sntp` module has a `sync` command that does two things: it sets the
 time in the ESP8266's RTC (so that subsequent calls to the `rtctime`
 module give the right answer) and it calls a callback function with
-some info on the NTP response (for now, I'm leaving the error callback
-out, but it just reboots the MCU). The callback then calculates
+some info on the NTP response (the error callback I pass in
+just reboots the MCU). The callback then calculates
 sunset, calculates the time that the lamp should be on (I put that
 half an hour before sunset), and depending on whether we're in the
 lamp on interval or not, does the right thing. The whole thing is [in
@@ -191,7 +203,7 @@ Like most functions there, it ends up doing something and then setting up a time
 with a callback to do the next thing. As far as state machines with delays go,
 I found it a very clean and simple to reason about way to write code, and it
 was pretty much one of the first times that the callback model for multithreading
-looked like it found home. The state machine breaks down in four functions that
+looked like it found its sweet spot. The state machine breaks down in four functions that
 do something and then call or schedule each other.
 
 You would expect me to write something about testing now. I should. I won't. But
@@ -200,12 +212,12 @@ it'd be extremely trivial in Lua to have dummy implementations of `tmr` and
 cases, it was around dusk anyway, so I just rebooted the MCU at set times to
 see whether it made the right decisions. It did :). Time for hardware.
 
-![img/cooplight-breadbord.jpg](Cooplight on a breadboard)
+![Cooplight on a breadboard](/img/cooplight-breadbord.jpg)
 
 Breadboard first, of course. While the target hardware uses left over LED strips,
 these take 12V so I verified that things worked using regular LEDs. The transistors
-(2N3904 for the very good reason that I had them) are triggered through two
-GPIO pins with a 1KΩ resistor as a current limited between GPIO and base,
+(I used 2N3904 for the very good reason that I had them) are triggered through two
+GPIO pins with a 1KΩ resistor as a current limiter between GPIO and base,
 and the LEDs are between 5V and the transistors' collectors. The emitters
 are wired to ground. Needless to say, this is 101 electronics, if it even
 makes that bar and everything just worked. Still, had to verify with the
@@ -222,31 +234,48 @@ have a cut mark every three LEDs) and just trigger two GPIOs. Shorter
 strips are simpler to work with anyway. For those that, like me, are
 not electronics wizzards, the schematic:
 
-![img/cooplight-circuit.svg](Cooplight circuit)
+![Cooplight circuit](/img/cooplight-circuit.svg)
 
 and, for a good laugh, the end result, mounted dustproof in an old
 pickle jar:
 
-![img/cooplight-in-a-jar.jpg](Cooplight in a jar)
+![Cooplight in a jar](/img/cooplight-in-a-jar.jpg)
 
 The jar is dustproof, fireproof, and transparent so it is the perfect
 enclosure for a chicken coop. The jar is fed by 12V from a solar+battery
 combination, and I added a DC-DC voltage regulator; I once bought a handful
-of these based on an LM259 and they'll eat anything up to 40V and spit out
-whatever you need. The LEDs get the 12V directly and the NodeMCU 5V through
-its USB port (I could have soldered the 5V on the NodeMCU but this way the
-device either gets 5V or is connected to my laptop, not both at the same time
+of these; they are based on an LM259 switching regulator and they'll eat
+anything up to 40V and spit out
+whatever you need. The LEDs get the 12V directly and the NodeMCU receives 5V through
+its USB port (I could have soldered the 5V directly on the NodeMCU but this way the
+device either gets 5V or is connected to my laptop, never both at the same time
 which I think is safer). Next up is install in the coop, as soon as the snow
-stops :)
+stops :). Because it is in the coop, and I never trust my code, I added remote
+logging as well so that a PC that is always on now shows exactly what is
+happening in its `/var/log/syslog`:
 
-Why am I writing this? Mostly to get your attention for this
-wonderful and cheap IoT miracle. The whole build took me maybe two
-days, and for much less than a Raspbery Pi I now have something that
-does the trick, is network connected, easy to upgrade (although not
-yet over-the-air), and will tell me what it is doing through syslog
-to a PC that is always on and has remote syslogging enabled. Using
+```
+Jan  1 00:00:00 ESP-E1B27B Waiting for IP address...
+Jan  1 00:00:00 ESP-E1B27B Wifi connection is ready! IP address is: 192.168.17.219
+Jan  1 00:00:00 ESP-E1B27B Startup will resume in five seconds, in case of panic loop execute `file.remove("init.lua")` on console
+Jan  1 00:00:00 ESP-E1B27B Initializing CoopLight™ (v1.0)
+Nov  3 11:13:48 ESP-E1B27B Synchronized NTP with 199.182.221.110
+Nov  3 11:13:48 ESP-E1B27B Current POSIX time is 1604402028
+Nov  3 11:13:48 ESP-E1B27B Current Julian time is 2459156.9679167
+Nov  3 11:13:48 ESP-E1B27B Sunset in: -45935 secs
+Nov  3 11:13:48 ESP-E1B27B Sleeping for an hour...
+```
+
+I hope I got your attention for this wonderful and cheap IoT device
+and development environment. The whole build took me maybe two days,
+and for much less than a Raspbery Pi I now have something that does
+the trick, is network connected, easy to upgrade (although not yet
+over-the-air), and will tell me what it is doing through syslog
+to a PC that is always on and has remote logging enabled. Using
 [ESPlorer](https://github.com/4refr0nt/ESPlorer) development is highly
 interactive and Lua seems to me like a language tailor-made for this
 kind of device.
 
 Also, I hope you had fun reading this, of course :)
+
+Code can be had [from Github](https://github.com/cdegroot/cooplight/).
