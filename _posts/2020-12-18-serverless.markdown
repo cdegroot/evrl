@@ -2,6 +2,7 @@
 layout: post
 title:  "Back to the '70s with Serverless"
 date:   2020-12-18 01:02:03
+description: Serverless, AWS Lambda, and mainframes versus the good old times of personal computing and simple client/servier systems.
 categories: devops cloud
 ---
 I've now worked with "The Cloud" for long enough to see that there's still a long way to
