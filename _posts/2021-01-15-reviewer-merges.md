@@ -18,7 +18,7 @@ and sometimes, while making changes, you happened to see code that
 was written in a way to make you angry, sad or very happy and you gave
 feedback. Since then, through a lot of intermediate steps, most teams
 seem to have settled on what is now the de facto standard workflow on
-Github: you branch, create a pull request, and before the pull requset
+Github: you branch, create a pull request, and before the pull request
 is merged back into the main branch a colleague reviews.
 
 There's some divergence here, though. Often, "a colleague reviews" is
