@@ -5,7 +5,9 @@ date:   2019-03-28 01:02:03
 categories: programming
 ---
 A lot has been written about "hyperproductive teams", and a lot
-has been written how programming languages help here. [Beating the
+has been written how programming languages help here.
+
+[Beating the
 Averages](http://www.paulgraham.com/avg.html) is probably the most famous
 one. I myself worked in Smalltalk full-time, and can share the same kind
 of story. So why aren't we all using either of these two languages?
