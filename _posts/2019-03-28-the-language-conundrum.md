@@ -68,7 +68,7 @@ Why? My theory, completely made up and untested, is that these powerful
 Lisp/Smalltalk systems weave code and brains together in a way that
 amplifies both. It's very organic, very hard to document, and thus it
 becomes very hard to absorb new brains into the system. When I joined the
-small Smalltalk group it was very hard to get started in that codebase. It
+small Smalltalk group it was very hard to get started in that code base. It
 was complex, and completely different from the previous thing I worked
 on. Both were using the same VM (VisualWorks) but both had their IDEs
 adapted to a point that they became new and very well-honed tools and
