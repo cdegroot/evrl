@@ -10,6 +10,9 @@ with [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view) f
 [Commanded](https://github.com/commanded/commanded) as a CQRS/ES implementation, and [PostgreSQL](https://www.postgresql.org/) for persistence - I think I heard someone call it the CELP stack,
 so let's call it the CELP stack. I think this stack is a great way to tackle software complexity.
 
+_[Note: the timestamps in this post are off, but given that they are part of this post's URL, not simply unfixable. The
+actual date this got published was 23 May 2021_
+
 Some may disagree with [Fred Brooks'](https://en.wikipedia.org/wiki/No_Silver_Bullet) distinction between
 accidental and essential complexity, but my experience indicates that he is correct. I have worked in what is
 now called SaaS for almost 25 years (and "regular" software another decade before that), I've seen the gamut between horrible contraptions and trivially simple systems,
@@ -107,7 +110,7 @@ process back to the view in the browser. This is what you end up with:
 * User presses "submit" to, say, add something to their shopping cart;
 * the active LiveView server receives event, and converts it into an "AddItemToCart" command which it dispatches
   to the Commanded application;
-* Commanded takes the command and routes it to your "ShoppingCart" aggregate root, dehydrating it if necessary;
+* Commanded takes the command and routes it to your "ShoppingCart" aggregate root, hydrating it if necessary;
 * Your aggregate root has an `execute` method that checks whether the item wasn't already in the cart, etc, and
   if all is well, emits an "ItemAddedToCart" event;
 * Commanded persists the event;
